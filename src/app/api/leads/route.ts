@@ -4,7 +4,7 @@ export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
 
-        const backendUrl = process.env.BACKEND_URL || 'https://growthos-tau.vercel.app';
+        const backendUrl = process.env.BACKEND_URL || 'https://growth-os-backend-wwa4.vercel.app';
 
         const res = await fetch(`${backendUrl}/api/leads`, {
             method: 'POST',
