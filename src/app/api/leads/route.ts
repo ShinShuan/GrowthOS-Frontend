@@ -17,14 +17,18 @@ export async function POST(req: NextRequest) {
         const data = await res.json();
 
         if (!res.ok) {
-            return NextResponse.json(data, { status: res.status });
+            console.error(`[API Proxy] Backend returned ${res.status}:`, data);
+            return NextResponse.json(
+                { success: false, message: data.message || 'Le serveur backend a renvoyé une erreur.' },
+                { status: res.status }
+            );
         }
 
         return NextResponse.json(data);
     } catch (error: any) {
         console.error('[API Proxy Error]', error);
         return NextResponse.json(
-            { success: false, error: 'Erreur serveur interne.' },
+            { success: false, message: 'Erreur de communication avec le serveur (Proxy).' },
             { status: 500 }
         );
     }
