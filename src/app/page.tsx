@@ -242,7 +242,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="flex-1 w-full flex justify-center py-10">
+            <div className="flex-1 w-full flex justify-center py-20 md:py-32">
               <DisplayCards cards={pbSolutionCards} />
             </div>
           </div>
