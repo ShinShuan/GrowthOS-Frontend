@@ -25,7 +25,7 @@ const caseStudies = [
             "Gains de 45h/semaine sur l'ensemble du réseau",
             "Mise en place d'une IA Agent Vocal (Marc) pour le premier contact"
         ],
-        quote: "L'intelligence artificielle n'a pas remplacé nos agents, elle leur a rendu leur vrai métier : la négociation et l'humain. C'est le meilleur ROI technologique de l'année.",
+        quote: "L'infrastructure d'Agents n'a pas remplacé nos agents humains, elle leur a rendu leur vrai métier : la négociation et l'humain. C'est le meilleur ROI technologique de l'année.",
         delay: 0.1
     },
     {
@@ -38,7 +38,7 @@ const caseStudies = [
             "Booking Agent déployé pour planifier directement dans Calendly",
             "CA mensuel doublé en moins de 3 mois"
         ],
-        quote: "Nous perdions des fortunes car la réactivité était notre point faible. Désormais, l'IA engage chaque prospect à la seconde où il dépose ses coordonnées.",
+        quote: "Nous perdions des fortunes car la réactivité était notre point faible. Désormais, l'infrastructure d'Agents engage chaque prospect à la seconde où il dépose ses coordonnées.",
         delay: 0.3
     },
     {

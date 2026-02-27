@@ -17,7 +17,7 @@ const navItems = [
 const timelineData = [
     {
         id: 1,
-        title: "Scraper IA",
+        title: "Scraper Agent",
         date: "Base de données",
         content: "Parcourt vos bases de données, CRM et portails immobiliers pour identifier et corriger les contacts inactifs les plus prometteurs. Il enrichit la donnée et filtre les numéros non valides.",
         painPoint: "Des milliers de contacts accumulés inexploitables et chronographes à trier.",
