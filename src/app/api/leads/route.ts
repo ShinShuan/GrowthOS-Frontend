@@ -1,64 +1,68 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { createLead } from '@/lib/airtable';
+import { sendPdfEmail } from '@/lib/email';
+import { generateLeadMagnet } from '@/lib/pdf-generator';
+
+export async function GET() {
+    // Diagnostic for the user to check their Vercel variables on the frontend project
+    const apiKey = process.env.AIRTABLE_API_KEY;
+    const baseId = process.env.AIRTABLE_BASE_ID;
+    const tableName = process.env.AIRTABLE_TABLE_NAME || 'Leads';
+
+    return NextResponse.json({
+        success: true,
+        project: "GrowthOS Frontend",
+        config: {
+            AIRTABLE_TABLE_NAME: tableName,
+            AIRTABLE_BASE_ID_MASK: baseId ? `${baseId.substring(0, 3)}...${baseId.substring(baseId.length - 3)}` : 'MISSING',
+            AIRTABLE_API_KEY_START: apiKey ? `${apiKey.substring(0, 4)}...` : 'MISSING',
+            AIRTABLE_API_KEY_FORMAT: apiKey ? (apiKey.startsWith('pat') ? 'VALID (pat)' : 'INVALID (No pat)') : 'MISSING',
+        }
+    });
+}
 
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
+        const { nom, email, telephone, agence } = body;
 
-        let backendUrl = process.env.BACKEND_URL || 'https://growth-os-backend.vercel.app';
-        // Normalize URL: remove trailing slash
-        backendUrl = backendUrl.replace(/\/$/, "");
-
-        console.log(`[API Proxy] Forwarding to: ${backendUrl}/api/leads`);
-
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 15000); // Increased to 15s to allow backend to finish its own internal timeouts (8s total)
-
-        try {
-            const res = await fetch(`${backendUrl}/api/leads`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(body),
-                signal: controller.signal
-            });
-
-            clearTimeout(timeoutId);
-
-            // Try to get response text first in case it's not JSON
-            const text = await res.text();
-            console.log(`[API Proxy] Backend responded with status ${res.status}`);
-
-            let data;
-            try {
-                data = JSON.parse(text);
-            } catch (e) {
-                data = { message: text || 'Erreur inconnue du serveur backend.' };
-            }
-
-            if (!res.ok) {
-                console.error(`[API Proxy] Backend returned ${res.status}:`, data);
-                return NextResponse.json(
-                    { success: false, message: data.message || data.error || 'Le serveur backend a renvoyé une erreur.' },
-                    { status: res.status }
-                );
-            }
-
-            return NextResponse.json(data);
-        } catch (fetchError: any) {
-            if (fetchError.name === 'AbortError') {
-                console.error('[API Proxy] Request timed out after 8s');
-                return NextResponse.json(
-                    { success: false, message: 'Le serveur backend met trop de temps à répondre (Timeout).' },
-                    { status: 504 }
-                );
-            }
-            throw fetchError;
+        if (!nom || !email || !telephone) {
+            return NextResponse.json({ success: false, message: "Données manquantes." }, { status: 400 });
         }
+
+        console.log(`[Lead API] Processing lead for: ${email}`);
+
+        // 1. Create lead in Airtable
+        let airtableSuccess = false;
+        try {
+            await createLead({ nom, email, telephone, agence: agence || '' });
+            airtableSuccess = true;
+            console.log("✅ Lead créé dans Airtable");
+        } catch (airtableError: any) {
+            console.error("⚠️ Échec Airtable:", airtableError.message);
+        }
+
+        // 2. Generate PDF and Send Email (Non-blocking for the user response)
+        (async () => {
+            try {
+                const pdfBuffer = await generateLeadMagnet(nom);
+                await sendPdfEmail({ nom, email, pdfBuffer });
+                console.log(`📧 Email envoyé à: ${email}`);
+            } catch (emailError: any) {
+                console.error("❌ Erreur génération/envoi email:", emailError.message);
+            }
+        })();
+
+        return NextResponse.json({
+            success: true,
+            message: 'Lead enregistré avec succès !',
+            warnings: airtableSuccess ? undefined : ['Airtable temporairement indisponible.']
+        });
+
     } catch (error: any) {
-        console.error('[API Proxy Error]', error);
+        console.error('[Lead API Error]', error);
         return NextResponse.json(
-            { success: false, message: `Erreur de communication : ${error.message || 'Le serveur est injoignable.'}` },
+            { success: false, message: `Erreur serveur : ${error.message}` },
             { status: 500 }
         );
     }
