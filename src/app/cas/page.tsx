@@ -68,7 +68,7 @@ export default function CasPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-5xl lg:text-7xl font-extrabold tracking-tight"
                     >
-                        Des résultats <span className="text-foreground">prouvés</span> sur le terrain
+                        Résultats <span className="text-foreground">Déployés</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -76,7 +76,7 @@ export default function CasPage() {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-muted-foreground"
                     >
-                        Trois études de cas détaillées d'agences qui ont transformé des bases de données dormantes en dizaines de milliers d'euros de chiffre d'affaires.
+                        Explorez comment nos configurations d'Agents IA transforment vos bases de données dormantes en dizaines de milliers d'euros de chiffre d'affaires.
                     </motion.p>
                 </div>
 
