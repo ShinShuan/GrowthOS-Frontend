@@ -39,13 +39,16 @@ export default function RadialOrbitalTimeline({
     });
     const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
     const [radius, setRadius] = useState(250);
+    const [isMobile, setIsMobile] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const orbitRef = useRef<HTMLDivElement>(null);
     const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth < 768) {
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
+            if (mobile) {
                 setRadius(95);
             } else if (window.innerWidth < 1024) {
                 setRadius(180);
@@ -131,7 +134,7 @@ export default function RadialOrbitalTimeline({
         setRotationAngle(270 - targetAngle);
 
         // On mobile, also shift the center slightly down so the card has more room up top
-        if (window.innerWidth < 768) {
+        if (typeof window !== 'undefined' && window.innerWidth < 768) {
             setCenterOffset({ x: 0, y: 100 });
         }
     };
@@ -258,7 +261,7 @@ export default function RadialOrbitalTimeline({
                                         ${isExpanded ? "scale-110 md:scale-125" : ""}
                                     `}
                                 >
-                                    <Icon size={window.innerWidth < 768 ? 20 : 24} />
+                                    <Icon size={isMobile ? 18 : 24} />
                                 </div>
 
                                 <div

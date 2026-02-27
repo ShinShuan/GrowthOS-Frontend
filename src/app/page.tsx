@@ -27,7 +27,7 @@ const pbSolutionCards = [
     description: "Score de chaleur 1-10",
     date: "15 min d'analyse",
     className:
-      "[grid-area:stack] -translate-x-8 -translate-y-8 z-10 hover:z-[100] hover:scale-105 transition-all duration-300 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity hover:grayscale-0 before:left-0 before:top-0",
+      "[grid-area:stack] -translate-x-4 -translate-y-4 md:-translate-x-8 md:-translate-y-8 z-10 hover:z-[100] hover:scale-105 transition-all duration-300 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity hover:grayscale-0 before:left-0 before:top-0",
   },
   {
     icon: <PhoneCall className="size-5 text-primary" />,
@@ -35,7 +35,7 @@ const pbSolutionCards = [
     description: "Marc qualifie 24/7",
     date: "0 action requise",
     className:
-      "[grid-area:stack] translate-x-4 translate-y-4 z-20 hover:z-[100] hover:scale-105 transition-all duration-300 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity hover:grayscale-0 before:left-0 before:top-0",
+      "[grid-area:stack] translate-x-2 translate-y-2 md:translate-x-4 md:translate-y-4 z-20 hover:z-[100] hover:scale-105 transition-all duration-300 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity hover:grayscale-0 before:left-0 before:top-0",
   },
   {
     icon: <Calendar className="size-5 text-primary" />,
@@ -43,7 +43,7 @@ const pbSolutionCards = [
     description: "RDV dans votre agenda",
     date: "+10 rdv par mois",
     className:
-      "[grid-area:stack] translate-x-16 translate-y-16 z-30 hover:z-[100] hover:scale-105 transition-all duration-300 hover:grayscale-0 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:left-0 before:top-0",
+      "[grid-area:stack] translate-x-8 translate-y-8 md:translate-x-16 md:translate-y-16 z-30 hover:z-[100] hover:scale-105 transition-all duration-300 hover:grayscale-0 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:left-0 before:top-0",
   },
 ];
 
@@ -115,19 +115,6 @@ export default function LandingPage() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  // Responsive versions of the cards
-  const responsivePbCards = pbSolutionCards.map((card, idx) => ({
-    ...card,
-    className: cn(
-      card.className,
-      // Override translations on mobile to keep them centered and visible
-      "md:translate-x-none md:translate-y-none",
-      window.innerWidth < 768 && idx === 0 && "-translate-x-4 -translate-y-4",
-      window.innerWidth < 768 && idx === 1 && "translate-x-2 translate-y-2",
-      window.innerWidth < 768 && idx === 2 && "translate-x-8 translate-y-8"
-    )
-  }));
 
   return (
     <main className="min-h-screen bg-background text-foreground font-sans relative overflow-x-hidden selection:bg-primary/30">
@@ -256,7 +243,7 @@ export default function LandingPage() {
             </div>
 
             <div className="flex-1 w-full flex justify-center py-10">
-              <DisplayCards cards={responsivePbCards} />
+              <DisplayCards cards={pbSolutionCards} />
             </div>
           </div>
         </div>
