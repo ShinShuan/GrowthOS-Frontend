@@ -20,18 +20,17 @@ interface NavBarProps {
 
 export function NavBar({ items, className }: NavBarProps) {
     const pathname = usePathname()
-    const [activeTab, setActiveTab] = useState(items[0].name)
     const [isMobile, setIsMobile] = useState(false)
 
-    // Update active tab based on current pathname
-    useEffect(() => {
-        const currentItem = items.find(item =>
-            pathname === item.url || (item.url !== '/' && pathname.startsWith(item.url))
-        )
-        if (currentItem) {
-            setActiveTab(currentItem.name)
+    // Identify active tab based on current pathname
+    const activeItem = items.find(item => {
+        if (item.url === '/') {
+            return pathname === '/'
         }
-    }, [pathname, items])
+        return pathname === item.url || pathname.startsWith(item.url)
+    })
+
+    const activeTab = activeItem ? activeItem.name : items[0].name
 
     useEffect(() => {
         const handleResize = () => {
