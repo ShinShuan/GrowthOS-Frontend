@@ -4,7 +4,7 @@ export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
 
-        let backendUrl = process.env.BACKEND_URL || 'https://growth-os-backend-wwa4.vercel.app';
+        let backendUrl = process.env.BACKEND_URL || 'https://growth-os-backend.vercel.app';
         // Normalize URL: remove trailing slash
         backendUrl = backendUrl.replace(/\/$/, "");
 
