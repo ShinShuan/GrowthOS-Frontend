@@ -46,7 +46,7 @@ export default function RadialOrbitalTimeline({
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 768) {
-                setRadius(110);
+                setRadius(95);
             } else if (window.innerWidth < 1024) {
                 setRadius(180);
             } else {
@@ -132,7 +132,7 @@ export default function RadialOrbitalTimeline({
 
         // On mobile, also shift the center slightly down so the card has more room up top
         if (window.innerWidth < 768) {
-            setCenterOffset({ x: 0, y: 80 });
+            setCenterOffset({ x: 0, y: 100 });
         }
     };
 
@@ -192,9 +192,9 @@ export default function RadialOrbitalTimeline({
                     }}
                 >
                     {/* Central sun/core */}
-                    <div className="absolute w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-white/80 via-white/50 to-white/20 animate-pulse flex items-center justify-center z-10">
-                        <div className="absolute w-16 h-16 md:w-20 md:h-20 rounded-full border border-white/20 animate-ping opacity-70"></div>
-                        <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/90 backdrop-blur-md"></div>
+                    <div className="absolute w-10 h-10 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-white/80 via-white/50 to-white/20 animate-pulse flex items-center justify-center z-10">
+                        <div className="absolute w-14 h-14 md:w-20 md:h-20 rounded-full border border-white/20 animate-ping opacity-70"></div>
+                        <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-white/90 backdrop-blur-md"></div>
                     </div>
 
                     <div
@@ -231,10 +231,10 @@ export default function RadialOrbitalTimeline({
                                         }`}
                                     style={{
                                         background: `radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)`,
-                                        width: `${item.energy * 0.4 + 30}px`,
-                                        height: `${item.energy * 0.4 + 30}px`,
-                                        left: `-${(item.energy * 0.4 + 30 - 30) / 2}px`,
-                                        top: `-${(item.energy * 0.4 + 30 - 30) / 2}px`,
+                                        width: `${item.energy * 0.3 + 25}px`,
+                                        height: `${item.energy * 0.3 + 25}px`,
+                                        left: `-${(item.energy * 0.3 + 25 - 25) / 2}px`,
+                                        top: `-${(item.energy * 0.3 + 25 - 25) / 2}px`,
                                     }}
                                 ></div>
 

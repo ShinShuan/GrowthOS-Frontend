@@ -25,7 +25,7 @@ function DisplayCard({
     return (
         <div
             className={cn(
-                "group/card relative flex h-36 w-[22rem] -skew-y-[8deg] select-none flex-col justify-between rounded-xl border-2 bg-muted/70 backdrop-blur-sm px-4 py-3 transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[20rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] hover:border-foreground/20 hover:bg-muted hover:shadow-xl hover:shadow-primary/5 hover:-skew-y-0",
+                "group/card relative flex h-auto min-h-[8rem] md:h-36 w-[18rem] md:w-[22rem] -skew-y-[8deg] select-none flex-col justify-between rounded-xl border-2 bg-muted/70 backdrop-blur-sm px-4 py-3 transition-all duration-700 after:absolute after:-right-1 after:top-[-5%] after:h-[110%] after:w-[15rem] md:after:w-[20rem] after:bg-gradient-to-l after:from-background after:to-transparent after:content-[''] hover:border-foreground/20 hover:bg-muted hover:shadow-xl hover:shadow-primary/5 hover:-skew-y-0",
                 className
             )}
         >

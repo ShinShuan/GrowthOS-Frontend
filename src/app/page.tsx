@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { NavBar } from "@/components/ui/tubelight-navbar";
 import { Hero } from "@/components/ui/animated-hero";
 import { Component as Globe } from "@/components/ui/interactive-globe";
@@ -9,7 +10,7 @@ import { Pricing } from "@/components/blocks/pricing";
 import { Home, LineChart, Briefcase, Download, Sparkles, TrendingUp, Search, PhoneCall, Calendar, X } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const navItems = [
@@ -100,6 +101,33 @@ const pricingPlans = [
 
 export default function LandingPage() {
   const [selectedGlobeMarker, setSelectedGlobeMarker] = useState<any>(null);
+  const [globeSize, setGlobeSize] = useState(500);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setGlobeSize(320);
+      } else {
+        setGlobeSize(500);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Responsive versions of the cards
+  const responsivePbCards = pbSolutionCards.map((card, idx) => ({
+    ...card,
+    className: cn(
+      card.className,
+      // Override translations on mobile to keep them centered and visible
+      "md:translate-x-none md:translate-y-none",
+      window.innerWidth < 768 && idx === 0 && "-translate-x-4 -translate-y-4",
+      window.innerWidth < 768 && idx === 1 && "translate-x-2 translate-y-2",
+      window.innerWidth < 768 && idx === 2 && "translate-x-8 translate-y-8"
+    )
+  }));
 
   return (
     <main className="min-h-screen bg-background text-foreground font-sans relative overflow-x-hidden selection:bg-primary/30">
@@ -143,7 +171,7 @@ export default function LandingPage() {
             <div className="flex-1 w-full lg:w-auto relative flex justify-center mt-10 lg:mt-0">
               <div className="absolute inset-0 bg-primary/20 blur-[100px] w-full h-[300px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10" />
               <Globe
-                size={500}
+                size={globeSize}
                 className="opacity-90 max-w-full"
                 markers={[
                   { lat: 40.7128, lng: -74.0060, label: "New York", data: { company: "Quantum Real Estate", figures: "+145% de mandats exclusifs", details: "L'IA prédictive identifie les vendeurs 6 mois avant la mise sur le marché. ROI de 340% en 1 an." } },
@@ -173,7 +201,7 @@ export default function LandingPage() {
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-background/95 border-2 border-primary/50 p-6 rounded-2xl shadow-2xl backdrop-blur-xl z-50 pointer-events-auto"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] md:w-80 bg-background/95 border-2 border-primary/50 p-6 rounded-2xl shadow-2xl backdrop-blur-xl z-50 pointer-events-auto"
                 >
                   <button onClick={() => setSelectedGlobeMarker(null)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground">
                     <X className="w-5 h-5" />
@@ -228,7 +256,7 @@ export default function LandingPage() {
             </div>
 
             <div className="flex-1 w-full flex justify-center py-10">
-              <DisplayCards cards={pbSolutionCards} />
+              <DisplayCards cards={responsivePbCards} />
             </div>
           </div>
         </div>
