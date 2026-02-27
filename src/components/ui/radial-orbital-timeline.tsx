@@ -46,9 +46,9 @@ export default function RadialOrbitalTimeline({
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 768) {
-                setRadius(140);
+                setRadius(110);
             } else if (window.innerWidth < 1024) {
-                setRadius(200);
+                setRadius(180);
             } else {
                 setRadius(250);
             }
@@ -64,6 +64,7 @@ export default function RadialOrbitalTimeline({
             setActiveNodeId(null);
             setPulseEffect({});
             setAutoRotate(true);
+            setCenterOffset({ x: 0, y: 0 });
         }
     };
 
@@ -94,6 +95,7 @@ export default function RadialOrbitalTimeline({
                 setActiveNodeId(null);
                 setAutoRotate(true);
                 setPulseEffect({});
+                setCenterOffset({ x: 0, y: 0 });
             }
 
             return newState;
@@ -127,14 +129,19 @@ export default function RadialOrbitalTimeline({
         const targetAngle = (nodeIndex / totalNodes) * 360;
 
         setRotationAngle(270 - targetAngle);
+
+        // On mobile, also shift the center slightly down so the card has more room up top
+        if (window.innerWidth < 768) {
+            setCenterOffset({ x: 0, y: 80 });
+        }
     };
 
     const calculateNodePosition = (index: number, total: number) => {
         const angle = ((index / total) * 360 + rotationAngle) % 360;
         const radian = (angle * Math.PI) / 180;
 
-        const x = radius * Math.cos(radian) + centerOffset.x;
-        const y = radius * Math.sin(radian) + centerOffset.y;
+        const x = radius * Math.cos(radian);
+        const y = radius * Math.sin(radian);
 
         const zIndex = Math.round(100 + 50 * Math.cos(radian));
         const opacity = Math.max(
@@ -177,7 +184,7 @@ export default function RadialOrbitalTimeline({
         >
             <div className="relative w-full max-w-5xl h-full flex items-center justify-center">
                 <div
-                    className="absolute w-full h-full flex items-center justify-center"
+                    className="absolute w-full h-full flex items-center justify-center transition-transform duration-700 ease-in-out"
                     ref={orbitRef}
                     style={{
                         perspective: "1000px",
@@ -185,13 +192,9 @@ export default function RadialOrbitalTimeline({
                     }}
                 >
                     {/* Central sun/core */}
-                    <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-white/80 via-white/50 to-white/20 animate-pulse flex items-center justify-center z-10">
-                        <div className="absolute w-20 h-20 rounded-full border border-white/20 animate-ping opacity-70"></div>
-                        <div
-                            className="absolute w-24 h-24 rounded-full border border-white/10 animate-ping opacity-50"
-                            style={{ animationDelay: "0.5s" }}
-                        ></div>
-                        <div className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md"></div>
+                    <div className="absolute w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-white/80 via-white/50 to-white/20 animate-pulse flex items-center justify-center z-10">
+                        <div className="absolute w-16 h-16 md:w-20 md:h-20 rounded-full border border-white/20 animate-ping opacity-70"></div>
+                        <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/90 backdrop-blur-md"></div>
                     </div>
 
                     <div
@@ -228,50 +231,51 @@ export default function RadialOrbitalTimeline({
                                         }`}
                                     style={{
                                         background: `radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)`,
-                                        width: `${item.energy * 0.5 + 40}px`,
-                                        height: `${item.energy * 0.5 + 40}px`,
-                                        left: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,
-                                        top: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,
+                                        width: `${item.energy * 0.4 + 30}px`,
+                                        height: `${item.energy * 0.4 + 30}px`,
+                                        left: `-${(item.energy * 0.4 + 30 - 30) / 2}px`,
+                                        top: `-${(item.energy * 0.4 + 30 - 30) / 2}px`,
                                     }}
                                 ></div>
 
                                 <div
                                     className={`
-                  w-14 h-14 rounded-full flex items-center justify-center pointer-events-auto
-                  ${isExpanded
+                                        w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center pointer-events-auto
+                                        ${isExpanded
                                             ? "bg-white text-black"
                                             : isRelated
                                                 ? "bg-white/80 text-black"
                                                 : "bg-black text-white"
                                         }
-                  border-2 
-                  ${isExpanded
+                                        border-2 
+                                        ${isExpanded
                                             ? "border-white shadow-lg shadow-white/30"
                                             : isRelated
                                                 ? "border-white animate-pulse"
                                                 : "border-white/40"
                                         }
-                  transition-all duration-300 transform
-                  ${isExpanded ? "scale-125" : ""}
-                `}
+                                        transition-all duration-300 transform
+                                        ${isExpanded ? "scale-110 md:scale-125" : ""}
+                                    `}
                                 >
-                                    <Icon size={24} />
+                                    <Icon size={window.innerWidth < 768 ? 20 : 24} />
                                 </div>
 
                                 <div
                                     className={`
-                  absolute top-16 left-1/2 -translate-x-1/2 whitespace-nowrap
-                  text-sm font-semibold tracking-wider
-                  transition-all duration-300
-                  ${isExpanded ? "text-white scale-110" : "text-white/70"}
-                `}
+                                        absolute top-14 md:top-16 left-1/2 -translate-x-1/2 whitespace-nowrap
+                                        text-[10px] md:text-sm font-semibold tracking-wider
+                                        transition-all duration-300
+                                        ${isExpanded ? "text-white scale-110" : "text-white/70"}
+                                    `}
                                 >
                                     {item.title}
                                 </div>
 
                                 {isExpanded && (
-                                    <Card className="absolute top-20 md:top-24 left-1/2 -translate-x-1/2 w-[260px] md:w-80 bg-black/95 backdrop-blur-xl border-white/30 shadow-2xl shadow-white/10 overflow-visible z-50">
-                                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-white/50"></div>
+                                    <Card className="absolute bottom-20 md:bottom-auto md:top-24 left-1/2 -translate-x-1/2 w-[280px] sm:w-80 bg-black/95 backdrop-blur-xl border-white/30 shadow-2xl shadow-white/10 overflow-visible z-50">
+                                        <div className="hidden md:block absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-white/50"></div>
+                                        <div className="md:hidden absolute -bottom-3 left-1/2 -translate-x-1/2 w-px h-3 bg-white/50"></div>
                                         <CardHeader className="pb-2">
                                             <div className="flex justify-between items-center">
                                                 <Badge

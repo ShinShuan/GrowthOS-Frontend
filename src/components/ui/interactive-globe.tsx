@@ -360,7 +360,7 @@ export function Component({
     return (
         <canvas
             ref={canvasRef}
-            className={cn("w-full h-full cursor-grab active:cursor-grabbing", className)}
+            className={cn("w-full h-full cursor-grab active:cursor-grabbing touch-none", className)}
             style={{ width: size, height: size }}
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}

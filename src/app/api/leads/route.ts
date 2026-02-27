@@ -4,7 +4,11 @@ export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
 
-        const backendUrl = process.env.BACKEND_URL || 'https://growth-os-backend-wwa4.vercel.app';
+        let backendUrl = process.env.BACKEND_URL || 'https://growth-os-backend-wwa4.vercel.app';
+        // Normalize URL: remove trailing slash
+        backendUrl = backendUrl.replace(/\/$/, "");
+
+        console.log(`[API Proxy] Forwarding to: ${backendUrl}/api/leads`);
 
         const res = await fetch(`${backendUrl}/api/leads`, {
             method: 'POST',
@@ -14,12 +18,19 @@ export async function POST(req: NextRequest) {
             body: JSON.stringify(body),
         });
 
-        const data = await res.json();
+        // Try to get response text first in case it's not JSON
+        const text = await res.text();
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            data = { message: text || 'Erreur inconnue du serveur backend.' };
+        }
 
         if (!res.ok) {
             console.error(`[API Proxy] Backend returned ${res.status}:`, data);
             return NextResponse.json(
-                { success: false, message: data.message || 'Le serveur backend a renvoyé une erreur.' },
+                { success: false, message: data.message || data.error || 'Le serveur backend a renvoyé une erreur.' },
                 { status: res.status }
             );
         }
@@ -28,7 +39,7 @@ export async function POST(req: NextRequest) {
     } catch (error: any) {
         console.error('[API Proxy Error]', error);
         return NextResponse.json(
-            { success: false, message: 'Erreur de communication avec le serveur (Proxy).' },
+            { success: false, message: `Erreur de communication : ${error.message || 'Délai d\'attente dépassé'}` },
             { status: 500 }
         );
     }
