@@ -159,7 +159,7 @@ export default function SolutionPage() {
                         animate={{ opacity: 1, y: 0 }}
                         className="text-5xl lg:text-6xl font-extrabold tracking-tight"
                     >
-                        L'Arbre de Compétences <span className="text-foreground">Autonomes</span>
+                        L'Écosystème <span className="text-foreground">Autonome</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -167,7 +167,7 @@ export default function SolutionPage() {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-muted-foreground"
                     >
-                        Une synergie parfaite. Explorez nos agents en cliquant sur chaque nœud orbital pour découvrir comment ils interagissent entre eux pour vous générer des rendez-vous.
+                        Une synergie parfaite. Explorez comment vos Agents IA communiquent entre eux pour transformer vos bases de données en rendez-vous qualifiés.
                     </motion.p>
                 </div>
             </section>

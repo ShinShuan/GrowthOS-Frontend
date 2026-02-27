@@ -23,25 +23,25 @@ const navItems = [
 const pbSolutionCards = [
   {
     icon: <Search className="size-5 text-primary" />,
-    title: "1. Scraper Intelligent",
-    description: "Score de chaleur 1-10",
-    date: "15 min d'analyse",
+    title: "1. Scanner de Leads",
+    description: "Identifie les revenus cachés",
+    date: "Analyse instantanée",
     className:
       "[grid-area:stack] -translate-x-4 -translate-y-4 md:-translate-x-8 md:-translate-y-8 z-10 hover:z-[100] hover:scale-105 transition-all duration-300 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity hover:grayscale-0 before:left-0 before:top-0",
   },
   {
     icon: <PhoneCall className="size-5 text-primary" />,
-    title: "2. Agent IA d'Appels",
-    description: "Marc qualifie 24/7",
-    date: "0 action requise",
+    title: "2. Qualification Vocale",
+    description: "Marc contacte vos leads 24/7",
+    date: "Zéro temps humain",
     className:
       "[grid-area:stack] translate-x-2 translate-y-2 md:translate-x-4 md:translate-y-4 z-20 hover:z-[100] hover:scale-105 transition-all duration-300 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity hover:grayscale-0 before:left-0 before:top-0",
   },
   {
     icon: <Calendar className="size-5 text-primary" />,
-    title: "3. Booking Auto",
-    description: "RDV dans votre agenda",
-    date: "+10 rdv par mois",
+    title: "3. Booking Autonome",
+    description: "Rendez-vous direct agenda",
+    date: "+10 mandats / mois",
     className:
       "[grid-area:stack] translate-x-8 translate-y-8 md:translate-x-16 md:translate-y-16 z-30 hover:z-[100] hover:scale-105 transition-all duration-300 hover:grayscale-0 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:left-0 before:top-0",
   },
@@ -59,8 +59,8 @@ const pricingPlans = [
       "Formation équipe (1h)",
       "Support 30 jours"
     ],
-    description: "Idéal pour démarrer l'automatisation de vos relances.",
-    buttonText: "Réserver un appel",
+    description: "Activez votre premier agent autonome pour sécuriser vos relances et ne plus jamais perdre un lead.",
+    buttonText: "Activer mon premier agent",
     href: "/capture",
     isPopular: false,
   },
@@ -76,8 +76,8 @@ const pricingPlans = [
       "Support 90 jours",
       "Session stratégique mensuelle"
     ],
-    description: "La solution la plus choisie par les agences performantes.",
-    buttonText: "Réserver un appel",
+    description: "L'écosystème complet pour dominer votre secteur et automatiser 100% de votre pige.",
+    buttonText: "Passer à l'IA Professionnelle",
     href: "/capture",
     isPopular: true,
   },
@@ -92,8 +92,8 @@ const pricingPlans = [
       "Formation équipe (1 jour)",
       "Support premium 6 mois"
     ],
-    description: "Pour les réseaux d'agences et volumes importants.",
-    buttonText: "Demander un audit",
+    description: "Pour les réseaux d'agences cherchant une infrastructure de vente totale sans limites.",
+    buttonText: "Demander un Audit Global",
     href: "/capture",
     isPopular: false,
   },
@@ -132,15 +132,15 @@ export default function LandingPage() {
                 Agences Immobilières & Courtiers
               </div>
               <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-                247 contacts dormants = <span className="text-foreground">370 000€ évaporés</span> chaque année.
+                L'Infrastructure <span className="text-foreground">Autonome</span> qui génère vos mandats.
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                Les agences qui signent 50+ mandats par an ont un secret : l'IA automatise leur prospection pendant qu'elles se concentrent sur le closing.
+                Pendant que vous négociez, vos Agents IA identifient, qualifient et bookent vos prochains rendez-vous. Sans aucune intervention humaine.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/capture" className="w-full sm:w-auto">
                   <Button size="lg" className="w-full text-lg px-8 h-14 rounded-full">
-                    Télécharger le Guide Gratuit (20p)
+                    Recevoir la Stratégie (Gratuit)
                   </Button>
                 </Link>
                 <Link href="/solution" className="w-full sm:w-auto">
@@ -217,17 +217,17 @@ export default function LandingPage() {
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Le Problème</h2>
-            <h3 className="text-4xl lg:text-5xl font-bold tracking-tight">Vous jetez 73% de vos leads.</h3>
+            <h2 className="text-sm font-bold tracking-widest text-primary uppercase">L'Hémorragie Silencieuse</h2>
+            <h3 className="text-4xl lg:text-5xl font-bold tracking-tight">Le coût de l'inaction : 370 000€ évaporés.</h3>
           </div>
 
           <div className="flex flex-col lg:flex-row items-center gap-16 justify-between max-w-6xl mx-auto">
             <div className="flex-1 max-w-xl text-lg text-muted-foreground space-y-6">
               <p>
-                Vous accumulez des contacts dans votre base de données sans pouvoir tous les suivre correctement. Ces <strong className="text-foreground">leads dormants</strong> ont pourtant 2,5× plus de chances de convertir.
+                Chaque jour, des dizaines de contacts "dorment" dans votre CRM sans être rappelés. Ces <strong className="text-foreground">leads oubliés</strong> sont pourtant votre plus grande source de mandats non exploités.
               </p>
               <p>
-                Notre solution remplace 3 commerciaux en automatisant : le <strong className="text-foreground">scraping</strong> CRM, les <strong className="text-foreground">appels de qualification</strong> (via notre IA Marc), et la <strong className="text-foreground">prise de rendez-vous</strong> dans votre agenda.
+                GrowthOS est votre infrastructure de vente autonome. Elle remplace la prospection manuelle fastidieuse par un trio d'IA synchronisées : <strong className="text-foreground">le Scanner</strong> identifie, <strong className="text-foreground">Marc</strong> qualifie au téléphone, et le <strong className="text-foreground">Booking Agent</strong> ferme la boucle en remplissant votre agenda.
               </p>
               <div className="flex items-center gap-8 pt-4">
                 <div>
@@ -253,8 +253,8 @@ export default function LandingPage() {
       <section className="py-24 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Preuves Sociales</h2>
-            <h3 className="text-4xl lg:text-5xl font-bold tracking-tight">Ils génèrent déjà des résultats.</h3>
+            <h2 className="text-sm font-bold tracking-widest text-primary uppercase">Efficacité Prouvée</h2>
+            <h3 className="text-4xl lg:text-5xl font-bold tracking-tight">Ils ont déjà activé leur OS.</h3>
           </div>
 
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
