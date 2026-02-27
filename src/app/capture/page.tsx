@@ -118,7 +118,7 @@ export default function CapturePage() {
                             Votre guide a été envoyé à votre adresse email. Pensez à vérifier vos courriers indésirables si vous ne le recevez pas d'ici 5 minutes.
                         </p>
                         <p className="text-sm text-muted-foreground">
-                            <strong className="text-foreground">PS:</strong> Notre IA vous contactera d'ici quelques heures pour valider la réception.
+                            <strong className="text-foreground">PS:</strong> Notre Agent vous contactera d'ici quelques heures pour valider la réception.
                         </p>
                     </div>
                 )}
