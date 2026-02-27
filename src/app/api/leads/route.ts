@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
         console.log(`[API Proxy] Forwarding to: ${backendUrl}/api/leads`);
 
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 8000); // 8s timeout to beat Vercel's 10s limit
+        const timeoutId = setTimeout(() => controller.abort(), 15000); // Increased to 15s to allow backend to finish its own internal timeouts (8s total)
 
         try {
             const res = await fetch(`${backendUrl}/api/leads`, {
