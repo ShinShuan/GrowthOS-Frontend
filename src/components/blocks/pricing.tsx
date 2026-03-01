@@ -15,7 +15,6 @@ import NumberFlow from "@number-flow/react";
 interface PricingPlan {
     name: string;
     price: string;
-    yearlyPrice: string;
     period: string;
     features: string[];
     description: string;
@@ -95,23 +94,21 @@ export function Pricing({
                             <div className="absolute top-0 right-0 bg-primary py-0.5 px-2 rounded-bl-xl rounded-tr-xl flex items-center">
                                 <Star className="text-primary-foreground h-4 w-4 fill-current" />
                                 <span className="text-primary-foreground ml-1 font-sans font-semibold">
-                                    Popular
+                                    Plus populaire
                                 </span>
                             </div>
                         )}
                         <div className="flex-1 flex flex-col">
-                            <p className="text-base font-semibold text-muted-foreground">
+                            <p className="text-base font-semibold text-muted-foreground uppercase tracking-widest">
                                 {plan.name}
                             </p>
-                            <div className="mt-6 flex items-center justify-center gap-x-2">
+                            <div className="mt-6 flex items-baseline justify-center gap-x-1">
                                 <span className="text-5xl font-bold tracking-tight text-foreground">
                                     <NumberFlow
-                                        value={
-                                            isMonthly ? Number(plan.price) : Number(plan.yearlyPrice)
-                                        }
+                                        value={Number(plan.price)}
                                         format={{
                                             style: "currency",
-                                            currency: "USD",
+                                            currency: "EUR",
                                             minimumFractionDigits: 0,
                                             maximumFractionDigits: 0,
                                         }}
@@ -123,16 +120,10 @@ export function Pricing({
                                         className="font-variant-numeric: tabular-nums"
                                     />
                                 </span>
-                                {plan.period !== "Next 3 months" && (
-                                    <span className="text-sm font-semibold leading-6 tracking-wide text-muted-foreground">
-                                        / {plan.period}
-                                    </span>
-                                )}
+                                <span className="text-sm font-semibold leading-6 tracking-wide text-muted-foreground whitespace-nowrap">
+                                    / {plan.period}
+                                </span>
                             </div>
-
-                            <p className="text-xs leading-5 text-muted-foreground">
-                                {isMonthly ? "billed monthly" : "billed annually"}
-                            </p>
 
                             <ul className="mt-5 gap-2 flex flex-col">
                                 {plan.features.map((feature, idx) => (

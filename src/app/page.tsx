@@ -51,15 +51,14 @@ const pricingPlans = [
   {
     name: "STARTER",
     price: "1900",
-    yearlyPrice: "1400",
-    period: "Setup unique (en €)",
+    period: "Setup unique",
     features: [
       "1 agent spécialisé",
       "Setup en 48h",
-      "Formation équipe (1h)",
+      "Accompagnement individuel",
       "Support 30 jours"
     ],
-    description: "Activez votre premier agent autonome pour sécuriser vos relances et ne plus jamais perdre un lead.",
+    description: "Active ton premier agent autonome pour sécuriser tes relances et ne plus jamais perdre un lead.",
     buttonText: "Activer mon premier agent",
     href: "/capture",
     isPopular: false,
@@ -67,16 +66,15 @@ const pricingPlans = [
   {
     name: "PROFESSIONNEL",
     price: "4997",
-    yearlyPrice: "3997",
-    period: "Setup complet (en €)",
+    period: "Setup complet",
     features: [
       "3 agents interconnectés",
-      "Workflow complet de bout en bout",
+      "Workflow personnel complet",
       "CRM intégré automatique",
       "Support 90 jours",
       "Session stratégique mensuelle"
     ],
-    description: "L'écosystème complet pour dominer votre secteur et automatiser 100% de votre pige.",
+    description: "Ton écosystème personnel pour dominer ton secteur et automatiser 100% de ta pige.",
     buttonText: "Passer à l'IA Professionnelle",
     href: "/capture",
     isPopular: true,
@@ -84,16 +82,15 @@ const pricingPlans = [
   {
     name: "TRANSFORMATION",
     price: "9997",
-    yearlyPrice: "7997",
-    period: "Déploiement sur mesure (en €)",
+    period: "Déploiement sur mesure",
     features: [
       "10 agents customisés",
-      "API & synchronisation interne",
-      "Formation équipe (1 jour)",
+      "API & synchronisation totale",
+      "Formation intensive (1 jour)",
       "Support premium 6 mois"
     ],
-    description: "Pour les réseaux d'agences cherchant une infrastructure de vente totale sans limites.",
-    buttonText: "Demander un Audit Global",
+    description: "Pour les mandataires d'élite cherchant une infrastructure de vente totale sans limites.",
+    buttonText: "Demander un Audit Personnel",
     href: "/capture",
     isPopular: false,
   },
@@ -129,18 +126,18 @@ export default function LandingPage() {
             <div className="flex-1 space-y-8 z-10">
               <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm">
                 <Sparkles className="mr-2 h-4 w-4" />
-                Agences Immobilières & Courtiers
+                Agences Immobilières & Mandataires
               </div>
               <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-                L'Infrastructure <span className="text-foreground">Autonome</span> qui génère vos mandats.
+                Ton Infrastructure <span className="text-foreground">Autonome</span> qui génère tes mandats.
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                Pendant que vous négociez, vos Agents IA identifient, qualifient et bookent vos prochains rendez-vous. Sans aucune intervention humaine.
+                Pendant que tu négocies, tes Agents IA identifient, qualifient et bookent tes prochains rendez-vous. Sans aucune intervention humaine.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/capture" className="w-full sm:w-auto">
                   <Button size="lg" className="w-full text-lg px-8 h-14 rounded-full">
-                    Recevoir la Stratégie (Gratuit)
+                    Recevoir ma Stratégie (Gratuit)
                   </Button>
                 </Link>
                 <Link href="/solution" className="w-full sm:w-auto">
@@ -224,10 +221,10 @@ export default function LandingPage() {
           <div className="flex flex-col lg:flex-row items-center gap-16 justify-between max-w-6xl mx-auto">
             <div className="flex-1 max-w-xl text-lg text-muted-foreground space-y-6">
               <p>
-                Chaque jour, des dizaines de contacts "dorment" dans votre CRM sans être rappelés. Ces <strong className="text-foreground">leads oubliés</strong> sont pourtant votre plus grande source de mandats non exploités.
+                Chaque jour, des dizaines de contacts "dorment" dans ton CRM sans être rappelés. Ces <strong className="text-foreground">leads oubliés</strong> sont pourtant ta plus grande source de mandats non exploités.
               </p>
               <p>
-                GrowthOS est votre infrastructure de vente autonome. Elle remplace la prospection manuelle fastidieuse par un trio d'IA synchronisées : <strong className="text-foreground">le Scanner</strong> identifie, <strong className="text-foreground">Marc</strong> qualifie au téléphone, et le <strong className="text-foreground">Booking Agent</strong> ferme la boucle en remplissant votre agenda.
+                GrowthOS est ton infrastructure de vente autonome. Elle remplace ta prospection manuelle fastidieuse par un trio d'IA synchronisées : <strong className="text-foreground">ton Scanner</strong> identifie, <strong className="text-foreground">Marc</strong> qualifie au téléphone, et ton <strong className="text-foreground">Booking Agent</strong> ferme la boucle en remplissant ton agenda.
               </p>
               <div className="flex items-center gap-8 pt-4">
                 <div>
@@ -322,8 +319,8 @@ export default function LandingPage() {
       {/* Pricing Section */}
       <Pricing
         plans={pricingPlans}
-        title="Choisissez votre automatisation"
-        description="Passez d'un CRM inactif à une machine de relance vocale et textuelle automatique."
+        title="Choisis ton automatisation"
+        description="Passe d'un CRM inactif à une machine de relance vocale et textuelle automatique qui ne t'oublie jamais."
       />
 
     </main>

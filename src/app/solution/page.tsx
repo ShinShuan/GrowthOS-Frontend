@@ -19,7 +19,7 @@ const timelineData = [
         id: 1,
         title: "Scraper Agent",
         date: "Base de données",
-        content: "Parcourt vos bases de données, CRM et portails immobiliers pour identifier et corriger les contacts inactifs les plus prometteurs. Il enrichit la donnée et filtre les numéros non valides.",
+        content: "Parcourt tes bases de données, ton CRM et les portails immobiliers pour identifier et corriger les contacts inactifs les plus prometteurs. Il enrichit la donnée et filtre les numéros non valides.",
         painPoint: "Des milliers de contacts accumulés inexploitables et chronographes à trier.",
         useCase: "Génère une liste propre et scorée de leads à contacter en priorité absolue.",
         category: "Extraction",
@@ -32,9 +32,9 @@ const timelineData = [
         id: 2,
         title: "Agent Vocal (Marc)",
         date: "Appels à froid",
-        content: "Appelle en votre nom avec une voix humaine. Il qualifie le projet immobilier (vente, achat), filtre les curieux, traite les objections classiques, et transmet les chauds au Booking Agent.",
+        content: "Appelle en ton nom avec une voix humaine. Il qualifie le projet immobilier (vente, achat), filtre les curieux, traite les objections classiques, et transmet les chauds au Booking Agent.",
         painPoint: "La pige coûte trop de temps, démotive les équipes et génère trop de rejets.",
-        useCase: "Filtre 100% des appels inutiles. Seuls les prospects qualifiés parlent à vos commerciaux.",
+        useCase: "Filtre 100% des appels inutiles. Seuls les prospects qualifiés arrivent jusqu'à toi.",
         category: "Qualification",
         icon: PhoneCall,
         relatedIds: [1, 3],
@@ -58,9 +58,9 @@ const timelineData = [
         id: 3,
         title: "Booking Agent",
         date: "Synchronisation",
-        content: "Prend le relais dès qu'un prospect est déclaré 'chaud'. Il lit votre Google Calendar ou Outlook et cale un rendez-vous directement aux créneaux disponibles. Il envoie un SMS de confirmation.",
+        content: "Prend le relais dès qu'un prospect est déclaré 'chaud'. Il lit ton Google Calendar ou Outlook et cale un rendez-vous directement aux créneaux disponibles. Il envoie un SMS de confirmation.",
         painPoint: "Aller-retours interminables pour trouver un créneau et no-shows fréquents.",
-        useCase: "Les RDV d'estimation ou visites apparaissent magiquement dans votre agenda.",
+        useCase: "Les RDV d'estimation ou visites apparaissent magiquement dans ton agenda.",
         category: "Conversion",
         icon: Calendar,
         relatedIds: [2, 4, 5],
@@ -84,7 +84,7 @@ const timelineData = [
         id: 6,
         title: "Agent Data Miner",
         date: "Veille Locale",
-        content: "Analyse en direct les prix du marché local et détecte les variations de DPE. Permet à vos commerciaux de contacter les prospects avec des arguments béton basés sur les derniers décrets.",
+        content: "Analyse en direct les prix du marché local et détecte les variations de DPE. Te permet de contacter les prospects avec des arguments béton basés sur les derniers décrets.",
         painPoint: "Manque d'arguments percutants lors des appels de relance.",
         useCase: "Fournit à l'Agent de Relance des raisons très spécifiques de recontacter le lead.",
         category: "Analyse Marché",
@@ -97,7 +97,7 @@ const timelineData = [
         id: 7,
         title: "Agent Support Web",
         date: "In-bound",
-        content: "Prend en charge les visiteurs de votre site web 24/7. Répond aux questions fréquentes, qualifie l'urgence, et redirige vers un agent humain ou le Booking Agent.",
+        content: "Prend en charge les visiteurs de ton site web 24/7. Répond aux questions fréquentes, qualifie l'urgence, et redirige vers toi ou le Booking Agent.",
         painPoint: "Perte de leads hors des heures d'ouverture de l'agence.",
         useCase: "Un standardiste toujours éveillé qui ne laisse passer aucune opportunité entrante.",
         category: "Assistance",
@@ -125,7 +125,7 @@ const timelineData = [
         date: "Sourcing",
         content: "Parcourt LinkedIn et les CV-thèques pour chasser de nouveaux talents commerciaux, fait le premier tri et organise des entretiens vidéo.",
         painPoint: "Le turn-over des agents/négociateurs freine fortement la croissance de l'agence.",
-        useCase: "Un chasseur de tête permanent qui vous amène des candidats pré-filtrés sur un plateau.",
+        useCase: "Un chasseur de tête permanent qui t'amène des candidats pré-filtrés sur un plateau.",
         category: "Scale",
         icon: Briefcase,
         relatedIds: [2],
@@ -167,7 +167,7 @@ export default function SolutionPage() {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-muted-foreground"
                     >
-                        Une synergie parfaite. Explorez comment vos Agents IA communiquent entre eux pour transformer vos bases de données en rendez-vous qualifiés.
+                        Une synergie parfaite. Explore comment tes Agents IA communiquent entre eux pour transformer tes bases de données en rendez-vous qualifiés.
                     </motion.p>
                 </div>
             </section>
@@ -185,7 +185,7 @@ export default function SolutionPage() {
                 >
                     <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto bg-white text-black hover:bg-white/90 group">
                         <Link href="/capture">
-                            Installer ce système dans mon agence
+                            Installer ce système pour mon activité
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>

@@ -76,7 +76,7 @@ export default function CasPage() {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-muted-foreground"
                     >
-                        Explorez comment nos configurations d'Agents IA transforment vos bases de données dormantes en dizaines de milliers d'euros de chiffre d'affaires.
+                        Explore comment nos configurations d'Agents IA transforment tes bases de données dormantes en dizaines de milliers d'euros de chiffre d'affaires.
                     </motion.p>
                 </div>
 
@@ -135,10 +135,10 @@ export default function CasPage() {
                     viewport={{ once: true }}
                     className="mt-24 text-center"
                 >
-                    <h2 className="text-2xl font-bold mb-6">Prêt à obtenir ces chiffres dans votre secteur ?</h2>
+                    <h2 className="text-2xl font-bold mb-6">Prêt à obtenir ces chiffres dans ton secteur ?</h2>
                     <Button asChild size="lg" className="h-14 px-8 text-lg rounded-full w-full sm:w-auto bg-white text-black hover:bg-white/90 group">
                         <Link href="/capture">
-                            Voir si mon agence est éligible
+                            Vérifier mon éligibilité
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
