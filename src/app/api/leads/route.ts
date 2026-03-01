@@ -12,11 +12,13 @@ export async function GET() {
     return NextResponse.json({
         success: true,
         project: "GrowthOS Frontend",
+        instructions: "Vérifiez que AIRTABLE_TABLE_NAME correspond EXACTEMENT au nom de l'onglet dans Airtable (respectez les majuscules).",
+        help_link: baseId?.startsWith('app') ? `https://airtable.com/${baseId}/api/docs` : "https://airtable.com/api",
         config: {
             AIRTABLE_TABLE_NAME: tableName,
-            AIRTABLE_BASE_ID_MASK: baseId ? `${baseId.substring(0, 3)}...${baseId.substring(baseId.length - 3)}` : 'MISSING',
-            AIRTABLE_API_KEY_START: apiKey ? `${apiKey.substring(0, 4)}...` : 'MISSING',
-            AIRTABLE_API_KEY_FORMAT: apiKey ? (apiKey.startsWith('pat') ? 'VALID (pat)' : 'INVALID (No pat)') : 'MISSING',
+            AIRTABLE_BASE_ID: baseId ? (baseId.startsWith('app') ? "✅ FORMAT OK" : "❌ DOIT COMMENCER PAR 'app'") : 'MISSING',
+            AIRTABLE_BASE_ID_VALUE: baseId ? `${baseId.substring(0, 3)}...${baseId.substring(baseId.length - 3)}` : 'MISSING',
+            AIRTABLE_API_KEY_FORMAT: apiKey ? (apiKey.startsWith('pat') ? '✅ PAT (OK)' : '⚠️ ANCIENNE CLÉ (PAT RECOMMANDÉ)') : 'MISSING',
         }
     });
 }
