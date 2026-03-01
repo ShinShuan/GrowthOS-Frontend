@@ -33,13 +33,15 @@ export async function POST(req: NextRequest) {
         console.log(`[Lead API] Processing lead for: ${email}`);
 
         // 1. Create lead in Airtable
-        let airtableSuccess = false;
         try {
             await createLead({ nom, email, telephone, agence: agence || '' });
-            airtableSuccess = true;
             console.log("✅ Lead créé dans Airtable");
         } catch (airtableError: any) {
             console.error("⚠️ Échec Airtable:", airtableError.message);
+            return NextResponse.json({
+                success: false,
+                message: `Erreur Airtable : ${airtableError.message}`
+            }, { status: 500 });
         }
 
         // 2. Generate PDF and Send Email (Non-blocking for the user response)
@@ -55,8 +57,7 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({
             success: true,
-            message: 'Lead enregistré avec succès !',
-            warnings: airtableSuccess ? undefined : ['Airtable temporairement indisponible.']
+            message: 'Lead enregistré avec succès !'
         });
 
     } catch (error: any) {
