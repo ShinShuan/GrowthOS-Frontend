@@ -50,9 +50,9 @@ const pbSolutionCards = [
 const pricingPlans = [
   {
     name: "STARTER",
-    price: "1497",
-    yearlyPrice: "1197",
-    period: "Setup unique",
+    price: "1900",
+    yearlyPrice: "1400",
+    period: "Setup unique (en €)",
     features: [
       "1 agent spécialisé",
       "Setup en 48h",
@@ -68,7 +68,7 @@ const pricingPlans = [
     name: "PROFESSIONNEL",
     price: "4997",
     yearlyPrice: "3997",
-    period: "Setup complet",
+    period: "Setup complet (en €)",
     features: [
       "3 agents interconnectés",
       "Workflow complet de bout en bout",
@@ -85,7 +85,7 @@ const pricingPlans = [
     name: "TRANSFORMATION",
     price: "9997",
     yearlyPrice: "7997",
-    period: "Déploiement sur mesure",
+    period: "Déploiement sur mesure (en €)",
     features: [
       "10 agents customisés",
       "API & synchronisation interne",

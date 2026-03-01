@@ -1,0 +1,485 @@
+﻿
+> frontend@0.1.0 build
+> next build
+
+node.exe : ÔÜá Found 
+lockfile missing swc 
+dependencies, 
+patching...
+Au caractère Ligne:1 : 
+1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (ÔÜá Found loc   
+ kf...es, patching.    
+..:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+21_52_462Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+21_54_027Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+21_55_520Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+21_56_926Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+21_58_288Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+21_59_841Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+22_01_364Z-debug-0.log
+Ô¿» Failed to patch 
+lockfile, please try 
+uninstalling and 
+reinstalling next in 
+this workspace
+Error: Failed to get 
+registry from "pnpm".
+    at ignore-listed 
+frames {
+  [cause]: Error: 
+Command failed: pnpm 
+config get registry 
+  npm error code 
+ENOWORKSPACES
+  npm error This 
+command does not 
+support workspaces.
+  npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+21_52_462Z-debug-0.log
+  
+      at ignore-listed 
+frames {
+    status: 1,
+    signal: null,
+    output: [
+      null,
+      <Buffer >,
+      <Buffer 6e 70 6d 
+20 65 72 72 6f 72 20 
+63 6f 64 65 20 45 4e 
+4f 57 4f 52 4b 53 50 
+41 43 45 53 0a 6e 70 
+6d 20 65 72 72 6f 72 
+20 54 68 69 73 20 63 
+6f 6d 6d 61 6e ... 167 
+more bytes>
+    ],
+    pid: 30824,
+    stdout: <Buffer >,
+    stderr: <Buffer 6e 
+70 6d 20 65 72 72 6f 
+72 20 63 6f 64 65 20 
+45 4e 4f 57 4f 52 4b 
+53 50 41 43 45 53 0a 
+6e 70 6d 20 65 72 72 
+6f 72 20 54 68 69 73 
+20 63 6f 6d 6d 61 6e 
+... 167 more bytes>
+  }
+}
+Ôû▓ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+ÔÜá Found lockfile 
+missing swc 
+dependencies, 
+patching...
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+22_04_906Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+22_06_957Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+22_08_999Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+22_10_495Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+22_12_368Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+22_14_044Z-debug-0.log
+npm error code 
+ENOWORKSPACES
+npm error This command 
+does not support 
+workspaces.
+npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+22_15_615Z-debug-0.log
+Ô¿» Failed to patch 
+lockfile, please try 
+uninstalling and 
+reinstalling next in 
+this workspace
+Error: Failed to get 
+registry from "pnpm".
+    at ignore-listed 
+frames {
+  [cause]: Error: 
+Command failed: pnpm 
+config get registry 
+  npm error code 
+ENOWORKSPACES
+  npm error This 
+command does not 
+support workspaces.
+  npm error A complete 
+log of this run can be 
+found in: C:\Users\s_fo
+n\AppData\Local\npm-cac
+he\_logs\2026-02-28T14_
+22_04_906Z-debug-0.log
+  
+      at ignore-listed 
+frames {
+    status: 1,
+    signal: null,
+    output: [
+      null,
+      <Buffer >,
+      <Buffer 6e 70 6d 
+20 65 72 72 6f 72 20 
+63 6f 64 65 20 45 4e 
+4f 57 4f 52 4b 53 50 
+41 43 45 53 0a 6e 70 
+6d 20 65 72 72 6f 72 
+20 54 68 69 73 20 63 
+6f 6d 6d 61 6e ... 167 
+more bytes>
+    ],
+    pid: 36740,
+    stdout: <Buffer >,
+    stderr: <Buffer 6e 
+70 6d 20 65 72 72 6f 
+72 20 63 6f 64 65 20 
+45 4e 4f 57 4f 52 4b 
+53 50 41 43 45 53 0a 
+6e 70 6d 20 65 72 72 
+6f 72 20 54 68 69 73 
+20 63 6f 6d 6d 61 6e 
+... 167 more bytes>
+  }
+}
+
+> Build error occurred
+Error: Turbopack build 
+failed with 1 errors:
+./node_modules/fontkit/
+dist/module.mjs:3:1
+Export applyDecoratedDe
+scriptor doesn't exist 
+in target module
+[0m [90m 1 |[39m 
+[36mimport[39m 
+$5OpyM$restructure 
+[36mfrom[39m [32m"re
+structure"[39m[33m;[
+39m
+ [90m 2 |[39m 
+[36mimport[39m 
+{readFileSync 
+[36mas[39m $5OpyM$rea
+dFileSync[33m,[39m 
+readFile [36mas[39m 
+$5OpyM$readFile} 
+[36mfrom[39m [32m"fs
+"[39m[33m;[39m
+[31m[1m>[22m[39m[9
+0m 3 |[39m 
+[36mimport[39m {apply
+DecoratedDescriptor 
+[36mas[39m $5OpyM$app
+lyDecoratedDescriptor} 
+[36mfrom[39m [32m"@s
+wc/helpers"[39m[33m;
+[39m
+ [90m   |[39m [31m[
+1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[3
+9m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[31
+m[1m^[22m[39m[31m[
+1m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[2
+2m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[39
+m[31m[1m^[22m[39m[
+31m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1
+m^[22m[39m[31m[1m^
+[22m[39m[31m[1m^[22
+m[39m[31m[1m^[22m[
+39m[31m[1m^[22m[39m
+[31m[1m^[22m[39m[3
+1m[1m^[22m[39m[31m
+[1m^[22m[39m[31m[1m
+^[22m[39m[31m[1m^[
+22m[39m[31m[1m^[22m
+[39m[31m[1m^[22m[3
+9m
+ [90m 4 |[39m 
+[36mimport[39m 
+{[33mBuffer[39m 
+[36mas[39m 
+$5OpyM$Buffer} 
+[36mfrom[39m [32m"bu
+ffer"[39m[33m;[39m
+ [90m 5 |[39m 
+[36mimport[39m 
+{resolveLength 
+[36mas[39m $5OpyM$res
+olveLength[33m,[39m 
+[33mPropertyDescriptor
+[39m [36mas[39m $5Opy
+M$PropertyDescriptor} 
+[36mfrom[39m [32m"re
+structure/src/utils.js"
+[39m[33m;[39m
+ [90m 6 |[39m 
+[36mimport[39m 
+$5OpyM$deepequal 
+[36mfrom[39m [32m"de
+ep-equal"[39m[33m;[3
+9m[0m
+
+The export applyDecorat
+edDescriptor was not 
+found in module [projec
+t]/node_modules/@swc/he
+lpers/esm/index.js 
+[app-route] 
+(ecmascript).
+Did you mean to import 
+_apply_decorated_descri
+ptor?
+All exports of the 
+module are statically 
+known (It doesn't have 
+dynamic exports). So 
+it's known statically 
+that the requested 
+export doesn't exist.
+
+Import trace:
+  App Route:
+    ./node_modules/font
+kit/dist/module.mjs
+    ./node_modules/pdfk
+it/js/pdfkit.es.js
+    ./frontend/src/lib/
+pdf-generator.ts
+    ./frontend/src/app/
+api/leads/route.ts
+
+
+    at ignore-listed 
+frames
+npm error Lifecycle 
+script `build` failed 
+with error:
+npm error code 1
+npm error path C:\Users
+\s_fon\GrowthOS 
+mig\frontend
+npm error workspace 
+frontend@0.1.0
+npm error location C:\U
+sers\s_fon\GrowthOS 
+mig\frontend
+npm error command 
+failed
+npm error command C:\WI
+NDOWS\system32\cmd.exe 
+/d /s /c next build

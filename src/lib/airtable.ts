@@ -11,7 +11,7 @@ function getBase() {
     }
 
     if (!baseId.startsWith('app')) {
-        throw new Error(`AIRTABLE_BASE_ID invalide : "${baseId}".`);
+        console.warn(`[Airtable] Attention: AIRTABLE_BASE_ID "${baseId}" ne commence pas par "app".`);
     }
 
     return new Airtable({ apiKey }).base(baseId);
