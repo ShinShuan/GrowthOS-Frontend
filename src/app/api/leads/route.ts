@@ -40,13 +40,18 @@ export async function POST(req: NextRequest) {
             console.log("✅ Lead créé dans Airtable");
         } catch (airtableError: any) {
             console.error("⚠️ Échec Airtable:", airtableError.message);
-            return NextResponse.json({
-                success: false,
-                message: `Erreur Airtable : ${airtableError.message}`
-            }, { status: 500 });
+            // On continue quand même vers Zoho et Email même si Airtable échoue
         }
 
-        // 2. Generate PDF and Send Email (Non-blocking for the user response)
+        // 2. Create lead in Zoho CRM (New)
+        try {
+            const { createZohoLead } = await import('@/lib/zoho');
+            await createZohoLead({ nom, email, telephone, agence: agence || '' });
+        } catch (zohoError: any) {
+            console.error("⚠️ Échec Zoho CRM:", zohoError.message);
+        }
+
+        // 3. Generate PDF and Send Email (Non-blocking)
         (async () => {
             try {
                 const pdfBuffer = await generateLeadMagnet(nom);
