@@ -35,9 +35,13 @@ async function getAccessToken() {
 }
 
 export async function createZohoLead(lead: ZohoLead) {
+    console.log(`[Zoho CRM] Tentative d'envoi pour : ${lead.email}`);
+
     try {
         const accessToken = await getAccessToken();
         const ZOHO_API_URL = process.env.ZOHO_API_URL || 'https://www.zohoapis.eu/crm/v2/Leads';
+
+        console.log(`[Zoho CRM] Utilisation de l'URL : ${ZOHO_API_URL}`);
 
         const response = await fetch(ZOHO_API_URL, {
             method: 'POST',
@@ -63,14 +67,17 @@ export async function createZohoLead(lead: ZohoLead) {
         const result = await response.json();
 
         if (response.ok) {
-            console.log("✅ Lead enregistré dans Zoho CRM via OAuth2");
+            console.log("✅ [Zoho CRM] Lead enregistré avec succès ! ID:", result.data?.[0]?.details?.id || 'Inconnu');
             return { success: true, data: result };
         } else {
-            console.error("❌ Erreur Zoho CRM API:", result);
+            console.error("❌ [Zoho CRM] Erreur API détectée :", JSON.stringify(result, null, 2));
             return { success: false, error: result };
         }
     } catch (error: any) {
-        console.error("❌ Erreur lors de l'envoi à Zoho:", error.message);
+        console.error("❌ [Zoho CRM] Erreur critique lors de l'envoi :", error.message);
+        if (error.message.includes("credential")) {
+            console.error("👉 CONSEIL : Vérifiez vos variables ZOHO_CLIENT_ID, ZOHO_CLIENT_SECRET et ZOHO_REFRESH_TOKEN sur Vercel.");
+        }
         return { success: false, error: error.message };
     }
 }
