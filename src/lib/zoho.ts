@@ -1,5 +1,5 @@
 /**
- * Service pour l'intégration Zoho CRM vers les Leads
+ * Service pour l'intégration Zoho CRM avec gestion OAuth2 (Refresh Token)
  */
 
 export interface ZohoLead {
@@ -9,30 +9,46 @@ export interface ZohoLead {
     agence?: string;
 }
 
-export async function createZohoLead(lead: ZohoLead) {
-    // Note : L'intégration Zoho nécessite normalement un Access Token OAuth2.
-    // Pour rester simple et efficace dans un premier temps, on prépare la structure
-    // qui pourra être utilisée soit avec le SDK Zoho, soit via une requête fetch directe.
+/**
+ * Récupère un nouvel Access Token à partir du Refresh Token
+ */
+async function getAccessToken() {
+    const clientID = process.env.ZOHO_CLIENT_ID;
+    const clientSecret = process.env.ZOHO_CLIENT_SECRET;
+    const refreshToken = process.env.ZOHO_REFRESH_TOKEN;
 
-    const ZOHO_API_URL = process.env.ZOHO_API_URL || 'https://www.zohoapis.eu/crm/v2/Leads';
-    const ZOHO_ACCESS_TOKEN = process.env.ZOHO_ACCESS_TOKEN;
-
-    if (!ZOHO_ACCESS_TOKEN) {
-        console.warn("⚠️ ZOHO_ACCESS_TOKEN manquant. Le lead ne sera pas envoyé à Zoho.");
-        return { success: false, error: "Missing token" };
+    if (!clientID || !clientSecret || !refreshToken) {
+        throw new Error("Missing Zoho OAuth2 credentials (Client ID, Secret, or Refresh Token)");
     }
 
+    // URL pour Zoho EU (modifiez si nécessaire pour .com)
+    const tokenUrl = `https://accounts.zoho.eu/oauth/v2/token?refresh_token=${refreshToken}&client_id=${clientID}&client_secret=${clientSecret}&grant_type=refresh_token`;
+
+    const response = await fetch(tokenUrl, { method: 'POST' });
+    const data = await response.json();
+
+    if (!response.ok || !data.access_token) {
+        throw new Error(`Failed to refresh Zoho token: ${data.error || 'Unknown error'}`);
+    }
+
+    return data.access_token;
+}
+
+export async function createZohoLead(lead: ZohoLead) {
     try {
+        const accessToken = await getAccessToken();
+        const ZOHO_API_URL = process.env.ZOHO_API_URL || 'https://www.zohoapis.eu/crm/v2/Leads';
+
         const response = await fetch(ZOHO_API_URL, {
             method: 'POST',
             headers: {
-                'Authorization': `Zoho-oauthtoken ${ZOHO_ACCESS_TOKEN}`,
+                'Authorization': `Zoho-oauthtoken ${accessToken}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 data: [
                     {
-                        Last_Name: lead.nom, // Last_Name est obligatoire dans Zoho CRM
+                        Last_Name: lead.nom,
                         Email: lead.email,
                         Phone: lead.telephone,
                         Company: lead.agence || 'B2C / Indépendant',
@@ -40,14 +56,14 @@ export async function createZohoLead(lead: ZohoLead) {
                         Description: 'Lead généré via le formulaire du site web.'
                     }
                 ],
-                trigger: ['workflow'] // Déclenche les automatisations Zoho
+                trigger: ['workflow']
             })
         });
 
         const result = await response.json();
 
         if (response.ok) {
-            console.log("✅ Lead enregistré dans Zoho CRM");
+            console.log("✅ Lead enregistré dans Zoho CRM via OAuth2");
             return { success: true, data: result };
         } else {
             console.error("❌ Erreur Zoho CRM API:", result);
